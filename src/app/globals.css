@@ -1,26 +1,96 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --primary: #101828;
+    --primary-light: #1e293b;
+    --gold: #D6A84F;
+    --gold-light: #FAF4E6;
+    --gold-border: #E8D4A2;
+    --gold-dark: #9A6F20;
+    --silver: #AEB7C2;
+    --silver-light: #F1F4F8;
+    --silver-border: #D1D8E0;
+    --silver-dark: #64748B;
+    --background: #F8FAFC;
+    --card: #FFFFFF;
+    --foreground: #0F172A;
+    --muted: #64748B;
+    --success: #16A34A;
+    --success-bg: #DCFCE7;
+    --danger: #DC2626;
+    --danger-bg: #FEE2E2;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Fintech Gold & Silver Metallic Gradients */
+.gold-gradient {
+  background: linear-gradient(135deg, #FFF9EB 0%, #FAF0D7 50%, #F5E5C0 100%);
+}
+
+.gold-badge {
+  background: linear-gradient(135deg, #D6A84F 0%, #C39238 100%);
+}
+
+.silver-gradient {
+  background: linear-gradient(135deg, #F8FAFC 0%, #EFF3F7 50%, #E2E8F0 100%);
+}
+
+.navy-gradient {
+  background: linear-gradient(135deg, #101828 0%, #1E293B 100%);
+}
+
+.gold-glow {
+  box-shadow: 0 4px 20px -2px rgba(214, 168, 79, 0.25);
+}
+
+.silver-glow {
+  box-shadow: 0 4px 20px -2px rgba(174, 183, 194, 0.25);
+}
+
+.fintech-card {
+  background: #ffffff;
+  border: 1px solid #E2E8F0;
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fintech-card:hover {
+  border-color: #CBD5E1;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.06), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+}
+
+/* Pulse animation for live indicators */
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.96); }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 2.5s infinite ease-in-out;
 }
